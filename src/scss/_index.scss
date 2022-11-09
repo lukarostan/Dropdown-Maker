@@ -1,1 +1,14 @@
-@import "./Layout/index";
+@import "reset";
+// Reset all default css values in all browsers.
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+@import "colors";
+@import "mixins";
+@import "Layout/index";
+@import "Components/Select/index";
+

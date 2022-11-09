@@ -1,0 +1,111 @@
+@mixin background-transition {
+  transition: background 0.1s ease-in;
+}
+
+@mixin form-item {
+  background: $bg-primary;
+  display: flex;
+  border-radius: 2px;
+  position: relative;
+  padding: 16px;
+}
+
+@mixin select-filter {
+  align-items: center;
+  justify-content: space-between;
+  @include background-transition;
+}
+
+@mixin action-button {
+  background: $secondary-light;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  @include background-transition;
+  &::before, &::after {
+    content: "";
+    width: 4px;
+    height: 15px;
+    background: $secondary-dark;
+    display: block;
+    position: absolute;
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.2s ease-in-out;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  &.plus {
+    &::after {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+  &.cross {
+    &::after {
+      transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(225deg);
+    }
+  }
+}
+
+@mixin dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  .option-label {
+    user-select: none;
+    width: 100%;
+  }
+  :not(.disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &.disabled {
+    &:hover {
+      cursor: default;
+    }
+
+    opacity: 0.5;
+  }
+}
+
+@mixin checkbox {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: $bg-ternary;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &.checked {
+    background: $secondary-light;
+
+    &::before, &::after {
+      content: "";
+      width: 2px;
+      background: $secondary-dark;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 1px;
+    }
+
+    &::before {
+      height: 10px;
+      transform: translateY(-5px) rotate(45deg);
+    }
+
+    &::after {
+      height: 5px;
+      transform: translate(-4px, -1px) rotate(135deg);
+    }
+  }
+}
