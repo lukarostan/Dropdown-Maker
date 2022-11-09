@@ -1,0 +1,14 @@
+.main-container {
+  padding: 16px 32px;
+  width: 100%;
+  position: relative;
+
+  .form-item {
+    min-height: 298px;
+    width: 400px;
+    overflow: hidden;
+    padding: 0 4px;
+    margin: auto;
+    transform: translateY(100%);
+  }
+}

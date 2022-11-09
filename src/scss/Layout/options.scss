@@ -1,0 +1,33 @@
+.options {
+  background: $bg-secondary;
+  padding: 16px;
+  -webkit-box-shadow: inset -7px 0px 31px -18px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset -7px 0px 31px -18px rgba(0, 0, 0, 1);
+  box-shadow: inset -7px 0px 31px -18px rgba(0, 0, 0, 1);
+
+  h2, p {
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .option {
+    @include dropdown-option;
+    width: 250px;
+    background: $bg-primary;
+    margin-bottom: 8px;
+
+    .option-checkbox {
+      margin-right: 16px;
+      @include checkbox
+    }
+  }
+}
