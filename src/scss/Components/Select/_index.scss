@@ -1,0 +1,9 @@
+.form-item {
+  @import "select-filter-component";
+  @import "form-item-dropdown";
+
+  .error {
+    font-size: 12px;
+    color: $error;
+  }
+}
