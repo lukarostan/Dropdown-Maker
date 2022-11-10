@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import DropdownOption from "./Select/DropdownOption";
 
-export const DropdownOptionControllerComponent = ({handleInputChange}) => {
+export const DropdownOptionControllerComponent = ({handleInputChange, inputOptions}) => {
     const additionalOptions = [{
         key: 0, value: "Enable multi-select"
     }, {
@@ -27,9 +27,9 @@ export const DropdownOptionControllerComponent = ({handleInputChange}) => {
             return (<DropdownOption
                 key={key}
                 allEnabled={true}
-                optionKey={key}
+                checked={!!selectedOptions[key]}
                 handleOnClick={(state) => updateInputValues(state, key)}
-                value={value}/>)
+                label={value}/>)
         })}
         <p>Update of any options resets element to default states</p>
     </div>)

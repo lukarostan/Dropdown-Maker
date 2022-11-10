@@ -20,6 +20,7 @@ export class AppControllerComponent extends React.Component {
     render() {
         return (<>
                 <DropdownOptionControllerComponent
+                    inputOptions={this.state.additionalOptions}
                     handleInputChange={(options) => this.handleUpdateAdditionalOptions(options)}
                 />
                 <DropdownHolder

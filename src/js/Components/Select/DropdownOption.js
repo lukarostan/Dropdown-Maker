@@ -1,40 +1,25 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-const DropdownOption = ({optionKey, value, initialState = false, allEnabled, handleOnClick}) => {
-    const [checked, setChecked] = useState(initialState)
-
-    const onClick = () => {
-        setChecked(!checked)
-        if(!checked){
-            handleOnClick(true)
-            return
-        }
-        handleOnClick(false)
-    }
-
-    useEffect(() => {
-        setChecked(initialState);
-    }, [initialState]);
+const DropdownOption = ({label, checked, allEnabled, handleOnClick}) => {
 
     return (
         <div
             className={`option ${!checked && !allEnabled ? "disabled" : ""}`}
-            key={optionKey}
-            value={optionKey}
-            onClick={() => onClick()}>
+            onClick={() => handleOnClick(!checked)}>
             <input
                 className={`option-checkbox ${checked ? "checked" : ""}`}
                 type={"checkbox"}
             />
-            <span className="option-label">{value}</span>
+            <span className="option-label">{label}</span>
         </div>
     );
 }
 
 DropdownOption.propTypes = {
-    optionKey: PropTypes.number.isRequired,
-    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
+    allEnabled: PropTypes.bool.isRequired,
     handleOnClick: PropTypes.func.isRequired,
 }
 
