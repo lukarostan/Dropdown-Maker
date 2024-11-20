@@ -12,3 +12,13 @@
     transform: translateY(100%);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    padding: 8px 0;
+    .form-item {
+      min-height: 298px;
+      width: 90%;
+    }
+  }
+}

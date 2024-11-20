@@ -7,3 +7,9 @@
 
 @import "options";
 @import "main-container";
+
+@media screen and (max-width: 768px) {
+  #root {
+    flex-direction: column;
+  }
+}
